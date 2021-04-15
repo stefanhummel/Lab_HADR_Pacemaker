@@ -24,6 +24,10 @@ db2 update db cfg for sample using HADR_REMOTE_HOST server2  		#<IP ADDRESS OF S
 db2 update db cfg for sample using HADR_REMOTE_SVC 5005 			# on STNDBY>
 db2 update db cfg for sample using HADR_REMOTE_INST db2inst1 		# <INSTNAME OF STNDBY>
 db2 update db cfg for sample using LOGINDEXBUILD ON
+# Prerequisites for db2cm
+db2 update db cfg for sample using HADR_SYNCMODE NEARSYNC 	# or SYNC
+db2 update db cfg for sample using HADR_PEER_WINDOW 120
+
 
 
 # Step 4
@@ -34,16 +38,13 @@ db2 backup database sample to /home/db2inst1/sample_backup
 
 # Step 5
 # FTP the backup image (from the primary machine) to the STANDBY MACHINE
-scp -p `ls -Art /home/db2inst1/sample_backup | tail -n 1` root@server2:/home/db2inst1/sample_backup
+scp -p `ls -Art /home/db2inst1/sample_backup | tail -n 1` db2inst1@server2:/home/db2inst1/sample_backup
 
 # Step 6
 # Restore db on standby server
-# user root:
-cd /home/db2inst1/sample_backup
-chown db2inst1:db2iadm1 *
-# user db2inst1
+# user db2inst1:
 su - db2inst1
-# db2start
+db2start
 db2 restore database sample from /home/db2inst1/sample_backup
 
 
