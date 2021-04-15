@@ -33,6 +33,7 @@ yum install ksh
 
 # Disable the Db2 fault monitor
 db2greg -updinstrec instancename=db2inst1 startatboot=0
+ps -eaf |grep -i db2fmcu
 
 
 
