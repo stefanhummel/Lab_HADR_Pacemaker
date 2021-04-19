@@ -38,26 +38,14 @@ yum install ksh
 db2greg -updinstrec instancename=db2inst1 startatboot=0
 ps -eaf |grep -i db2fmcu
 
-# VIP server 1
-cd /etc/sysconfig/network-scripts/
-cp ifcfg-ens33 ifcfg-ens33:0
-
-vi ifcfg-ens33:0
-TYPE=Ethernet
-DEVICE=ens33:0
-IPADDR=10.0.0.201
-NETMASK=255.0.0.0
-NETWORK=10.0.0.0
-BROADCAST=10.255.255.255
-ONBOOT=yes
-
- more /etc/sysconfig/network-scripts/ifcfg-ens33:0
+# install git
+yum install git
 
 
 # ifconfig ens33:1 10.0.0.101 netmask 255.255.255.0
 # systemctl restart NetworkManager.service
 ip addr show
-ping 10.0.0.201
+ping 10.0.0.101
 
 # VIP server 2
 analog
