@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# make sure all db connections are stopped
+db2 deactivate db sample
+
 # Create a database backup
 db2 backup database sample to /home/db2inst1/sample_backup
 
