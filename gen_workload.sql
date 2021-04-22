@@ -1,4 +1,4 @@
--- db2 -td@ -vf app2.sql
+-- db2 -td@ -vf gen_workload.sql
 connect to sample@
 -- simulate some activity to generate log volume
 -- periodically performing a COMMIT
