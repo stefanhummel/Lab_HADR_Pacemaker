@@ -27,7 +27,7 @@ crm status
 /home/db2inst1/sqllib/adm/db2cm -create -db SAMPLE -instance db2inst1
 
 # Create the VIP resources for the newly created database
-/home/db2inst1/sqllib/adm/db2cm -create -primaryVIP 10.0.0.201 -db SAMPLE –instance db2inst1
+/home/db2inst1/sqllib/adm/db2cm -create -primaryVIP 10.0.0.101 -db SAMPLE –instance db2inst1
 
 # Verify the cluster again using crm status
 crm status
