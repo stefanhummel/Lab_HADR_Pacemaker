@@ -37,7 +37,7 @@ yum install ksh
 10.0.0.2    stupefiedsammet.ibmcloud.skytapdns.com  server2
 10.0.0.3    ecstaticbenz.ibmcloud.skytapdns.com     server3
 
-# Disable the Db2 fault monitor
+# Disable the Db2 fault monitor (root)
 db2greg -updinstrec instancename=db2inst1 startatboot=0
 ps -eaf |grep -i db2fmcu
 
