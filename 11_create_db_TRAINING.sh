@@ -2,10 +2,10 @@
 #########################################################################
 #  This script is to setup a database for use with HADR on two server.
 #
-# primary host:			server2
+# primary host:		server2
 # standby host:		server1
 # database name: 	TRAINING
-# HADR port:			5006
+# HADR port:			5007
 #
 # perform all commands on server2
 #########################################################################
