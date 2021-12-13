@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# add license if available
+./00_add_licence.sh
+
 # Setup db sample
 rm -rf /home/db2inst1/sample_backup
 rm -rf /home/db2inst1/sample_arch1
