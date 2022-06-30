@@ -19,13 +19,7 @@ ssh db2inst1@server1 ' db2start '
 ssh db2inst1@server1 ' db2 -v "create database sample PAGESIZE 16 K" '
 ssh db2inst1@server1 ' db2 -v update db cfg for sample using LOGFILSIZ 40000 LOGPRIMARY 10 LOGSECOND 0 '
 ssh db2inst1@server1 ' db2 -v activate db sample '
-ssh db2inst1@server1 ' db2 -v connect to sample '
-ssh db2inst1@server1 ' db2 -v "create table app1 ( t timestamp )" '
-ssh db2inst1@server1 ' db2 -v "create table app1b ( t timestamp )" '
-ssh db2inst1@server1 ' db2 -v "create table status ( I integer )" '
-ssh db2inst1@server1 ' db2 -v "create table app2 like syscat.columns" '
-ssh db2inst1@server1 ' db2 -v "create variable app2_count integer default 0" '
-ssh db2inst1@server1 ' db2 -v connect reset '
+ssh db2inst1@server1 ' db2 -vf /home/db2inst1/Lab_HADR_Pacemaker/91_HADR_database_objects.db2 '
 
 # Enable log archiving
 ssh db2inst1@server1 ' db2 -v update db cfg for sample using LOGARCHMETH1 "DISK:/home/db2inst1/sample_arch1/" '
@@ -49,5 +43,5 @@ ssh db2inst1@server1 ' db2 -v backup database sample to /home/db2inst1/sample_ba
 # Copy the backup to server2
 ssh db2inst1@server2 'if [ ! -d /home/db2inst1/sample_backup ];then mkdir /home/db2inst1/sample_backup;fi' 
 ssh db2inst1@server2 ' rm -rf /home/db2inst1/sample_backup/* '
-ssh db2inst1@server1 ' scp -p `ls -Art /home/db2inst1/sample_backup | tail -n 1` db2inst1@server2:/home/db2inst1/sample_backup '
+ssh db2inst1@server1 ' scp -p `ls -Art /home/db2inst1/sample_backup |xargs realpath | tail -n 1` db2inst1@server2:/home/db2inst1/sample_backup '
 
