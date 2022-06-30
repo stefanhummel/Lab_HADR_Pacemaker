@@ -43,5 +43,5 @@ ssh db2inst1@server1 ' db2 -v backup database sample to /home/db2inst1/sample_ba
 # Copy the backup to server2
 ssh db2inst1@server2 'if [ ! -d /home/db2inst1/sample_backup ];then mkdir /home/db2inst1/sample_backup;fi' 
 ssh db2inst1@server2 ' rm -rf /home/db2inst1/sample_backup/* '
-ssh db2inst1@server1 ' scp -p `ls -Art /home/db2inst1/sample_backup |xargs realpath | tail -n 1` db2inst1@server2:/home/db2inst1/sample_backup '
+ssh db2inst1@server1 ' scp -p `find /home/db2inst1/sample_backup | tail -n 1` db2inst1@server2:/home/db2inst1/sample_backup '
 
