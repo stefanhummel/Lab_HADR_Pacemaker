@@ -24,7 +24,7 @@ ssh root@server1 ' db2cm -create -qdevice server3 '
 
 echo "done."
 echo " "
-echo "Finally, check the configuration with the following commands. You need root priviledges."
+echo "Finally, check the configuration with the following commands. You need root privileges."
 echo "  crm status "
 echo "  db2cm -list "
 echo " "
