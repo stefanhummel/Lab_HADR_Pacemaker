@@ -22,7 +22,10 @@ ssh root@server3 ' dnf install -y /tmp/db2_11.5.7/db2/linuxamd64/pcmk/Linux/rhel
 echo "Create Qdevice ..."
 ssh root@server1 ' db2cm -create -qdevice server3 '
 
-echo "Print configuration ..."
-ssh root@server1 ' crm status '
-ssh root@server1 ' db2cm -list '
+echo "done."
+echo " "
+echo "Finally, check the configuration with the following commands. You need root priviledges."
+echo "  crm status "
+echo "  db2cm -list "
+echo " "
 
