@@ -19,7 +19,7 @@ ssh db2inst1@server1 ' db2start '
 ssh db2inst1@server1 ' db2 -v "create database sample PAGESIZE 16 K" '
 ssh db2inst1@server1 ' db2 -v update db cfg for sample using LOGFILSIZ 40000 LOGPRIMARY 10 LOGSECOND 0 '
 ssh db2inst1@server1 ' db2 -v activate db sample '
-ssh db2inst1@server1 ' db2 -vf /home/db2inst1/Lab_HADR_Pacemaker/91_HADR_database_objects.db2 '
+ssh db2inst1@server1 ' db2 -tvf /home/db2inst1/Lab_HADR_Pacemaker/91_HADR_database_objects.db2 '
 
 # Enable log archiving
 ssh db2inst1@server1 ' db2 -v update db cfg for sample using LOGARCHMETH1 "DISK:/home/db2inst1/sample_arch1/" '
