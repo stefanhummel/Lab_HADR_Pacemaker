@@ -86,7 +86,7 @@ ssh db2inst1@server2 ' db2 -v update db cfg for sample using HADR_PEER_WINDOW 12
 
 # Setting up HADR cfg parameters on standby database
 echo "Setting up HADR cfg parameters on auxiliary standby database (server3) ..."
-ssh db2inst1@server1 ' db2 -v update db cfg for sample using HADR_TARGET_LIST "server2:5005|server1:5005" '        
+ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_TARGET_LIST "server2:5005|server1:5005" '        
 ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_LOCAL_HOST server3  '             #<IP ADDRESS ON STANDBY>
 ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_LOCAL_SVC 5005  '                 # ON STANDBY>
 ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_REMOTE_HOST server1  '    #<IP ADDRESS ON PRIM>
