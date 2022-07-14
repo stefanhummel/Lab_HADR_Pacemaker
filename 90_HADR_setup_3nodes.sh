@@ -93,7 +93,8 @@ ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_REMOTE_HOST se
 ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_REMOTE_SVC 5005   '               # ON PRIM>
 ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_REMOTE_INST db2inst1  '   # <INSTNAME ON PRIM>
 # Prerequisites for db2cm
-ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_SYNCMODE superasync  '      
+#ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_SYNCMODE superasync  '      
+ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_SYNCMODE nearsync  '      
 ssh db2inst1@server3 ' db2 -v update db cfg for sample using HADR_PEER_WINDOW 120 '
 
 
