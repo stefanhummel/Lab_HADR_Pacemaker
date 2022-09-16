@@ -7,5 +7,3 @@ if [ -f "$LICFILE" ]; then
     db2stop
     db2start
 fi
-
-
