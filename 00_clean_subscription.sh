@@ -2,10 +2,11 @@
 
 # run as root
 echo "clean subscriptions"
-dnf clean all
-rm -frv /var/cache/dnf
+subscription-manager unregister
+# subscription-manager register --username ??? --password ??? --auto-attach --force
+subscription-manager register --username AndreasChristian3 --auto-attach --force
 subscription-manager refresh
-dnf update
+subscription-manager attach --auto
 echo "done!"
 echo ""
 
