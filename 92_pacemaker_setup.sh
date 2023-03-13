@@ -17,7 +17,8 @@ echo "Create the virtual IP address (VIP) resources ..."
 ssh root@server1 ' db2cm -create -primaryVIP 10.0.0.101 -db SAMPLE -instance db2inst1 '
 
 echo "install the Corosync QNet software ..."
-ssh root@server3 ' dnf localinstall -y /tmp/db2_11.5.7/db2/linuxamd64/pcmk/Linux/rhel/x86_64/corosync-qnetd* '
+# ssh root@server3 ' dnf localinstall -y /tmp/db2_11.5.7/db2/linuxamd64/pcmk/Linux/rhel/x86_64/corosync-qnetd* '
+ssh root@server3 ' dnf localinstall -y /root/Downloads/universal/db2/linuxamd64/pcmk/Linux/rhel/x86_64/corosync-qnetd* '
 
 echo "Create Qdevice ..."
 ssh root@server1 ' db2cm -create -qdevice server3 '
