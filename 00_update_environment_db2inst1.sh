@@ -26,3 +26,6 @@ if [ -f "$LICFILE" ]; then
     db2stop
     db2start
 fi
+
+echo " "
+echo "Your environment is up to date. Have fun..."
